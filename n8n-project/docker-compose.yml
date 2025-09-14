@@ -3,7 +3,7 @@ version: '3.8'
 services:
   n8n:
     image: n8nio/n8n:latest
-    container_name: n8n_esposa2
+    container_name: n8n_esposa
     environment:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=db
@@ -22,18 +22,18 @@ services:
     depends_on:
       - db
     volumes:
-      - n8n_esposa2_data:/home/node/.n8n
+      - n8n_esposa_data:/home/node/.n8n
 
   db:
     image: postgres:latest
-    container_name: n8n_db_esposa2
+    container_name: n8n_db_esposa
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
-      - db_esposa2_data:/var/lib/postgresql/data
+      - db_esposa_data:/var/lib/postgresql/data
 
 volumes:
-  n8n_esposa2_data:
-  db_esposa2_data:
+  n8n_esposa_data:
+  db_esposa_data:
